@@ -27,7 +27,7 @@ For example if you want to run the checks every 600 seconds this path should do 
 /usr/lib/check_mk_agent/local/600/  
 
 
-
+## Example
 Here is an example of how the checks look in checkmk:
 
 
