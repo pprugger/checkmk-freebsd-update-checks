@@ -1,0 +1,17 @@
+#!/usr/local/bin/bash
+#This script checks if there are updates for packages available
+
+#Update the package list and check for new versions
+pkg update > /dev/null
+message=$(pkg version -RvL = | tail -n +4)
+count=$(pkg version -RvL = | wc -l)
+
+#count contains the number of lines outputed by pkg version
+#the first 3 lines are always there, so we cut them
+
+
+if [ $count -gt 3 ]; then
+   echo "2 \"FreeBSD: Pkg Status\" - $message"
+else
+   echo "0 \"FreeBSD: Pkg Status\" - All packages up to date"
+fi

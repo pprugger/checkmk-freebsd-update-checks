@@ -1,0 +1,14 @@
+#!/usr/local/bin/bash
+#This script checks if there are system updates are available
+
+
+#Fetch the updates, if there are any
+#check if there are updates to install
+freebsd-update fetch > /dev/null
+status=$(freebsd-update updatesready)
+
+if [ "$status" = "No updates are available to install." ]; then
+   echo "0 \"FreeBSD-Update Status\" - $status"
+else
+   echo "2 \"FreeBSD-Update Status\" - $status"
+fi
